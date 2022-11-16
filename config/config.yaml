@@ -1,0 +1,28 @@
+# mlflow experiments create -n 'Logistic Regression' -l '/home/asdf/prj/MLFlow/src/mlruns'
+
+preparation:
+  data_path: '/Pyspark_Airflow_Docker_Compose/data/LargeMovieReviewDataset.csv'
+  n_splits: 1
+  test_size: 0.3
+  random_state: 42
+
+train_model:
+  model: 'log_reg'
+  experiment_name: 'Logistic Regresssion'
+  tag_name_key: 'tag_name'
+  tag_name_value: 'FIRST_TRIAL'
+  run_name: 'TEST'
+  data_path_test: './data/test_pipe.csv'
+  data_path_train: './data/train_pipe.csv'
+  n_splits: 20
+  test_size: 0.1
+  solver: 'liblinear'
+  clf__penalty_choice: ['l1', 'l2']
+  low_C: 0.0001
+  high_C: 10.0
+  cross_val_score_cv: 5
+  scoring: 'roc_auc'
+  max_evals: 2
+  fi_plot_n_features: 20
+  low_alpha_NB: 0
+  high_alpha_NB: 1

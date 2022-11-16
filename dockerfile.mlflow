@@ -1,0 +1,5 @@
+FROM python:3-slim
+WORKDIR /Pyspark_Airflow_Docker_Compose/
+RUN pip install mlflow==1.27.0
+EXPOSE 5000
+CMD mlflow ui --host 0.0.0.0 --port 5000
