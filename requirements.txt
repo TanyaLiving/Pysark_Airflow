@@ -9,7 +9,7 @@
 # sudo apt install openjdk-11-jre-headless
 # sudo apt install docker-compose
 
-wheel == 0.37.1
+
 sklearn-pandas == 2.2.0
 scripts == 2.0
 unidecode == 1.3.4
@@ -31,6 +31,4 @@ dvc[gdrive] == 2.13.0
 pyspark
 py4j==0.10.9.5
 dvc-render==0.0.6
-pyOpenSSL==20.0.1
-cryptography==36.0.2
-
+pygit2==1.9.2

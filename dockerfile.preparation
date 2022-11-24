@@ -13,9 +13,9 @@ ARG DEBIAN_FRONTEND=noninteractive
 RUN apt-get update \
   && apt-get install -y python3-pip mysql-server libmysqlclient-dev libpq-dev python-dev python3-dev build-essential git \
   && rm -rf /var/lib/apt/lists/*
-COPY requirements.txt ./Pyspark_Airflow_Docker_Compose/
-RUN pip install -r ./Pyspark_Airflow_Docker_Compose/requirements.txt
-COPY . /Pyspark_Airflow_Docker_Compose
-WORKDIR /Pyspark_Airflow_Docker_Compose/
-VOLUME /Pyspark_Airflow_Docker_Compose/data
+COPY requirements.txt /Pyspark_Airflow/
+RUN pip3 install -r ./Pyspark_Airflow/requirements.txt
+COPY . /Pyspark_Airflow/
+WORKDIR /Pyspark_Airflow/
+VOLUME /Pyspark_Airflow/
 CMD [ "python3",  "./src/preparation.py"] 

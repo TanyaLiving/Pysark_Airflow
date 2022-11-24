@@ -13,11 +13,12 @@ start_date = pendulum.now()
 
 docker_prearation = DockerOperator(
     task_id = 'docker_prearation',
+    mounts = [{'source': '/home/asdf/prj/Pysark_Airflow/src', 'target': '/Pysark_Airflow/src', 'type': 'bind'}, ],
     image = 'image.preparation',
     container_name = 'preparation',
     auto_remove = 'force',
-    working_dir = '/Pyspark_Airflow_Docker_Compose/',
-    command = [ "python3",  "./src/preparation.py"],
+    working_dir = '/Pyspark_Airflow/',
+    command = ["sleep 600"],
     dag = dag
 )
 
@@ -26,9 +27,9 @@ docker_train_model = DockerOperator(
     image = 'image.preparation',
     container_name = 'train_model',
     auto_remove = 'force',
-    working_dir = '/Pyspark_Airflow_Docker_Compose/',
+    working_dir = '/Pyspark_Airflow/',
     command = ["python3", "./src/train_model.py"],
-    network_mode  = 'pyspark_airflow_docker_compose_default',
+    network_mode  = 'Pyspark_Airflow_default',
     dag = dag
 )
 
